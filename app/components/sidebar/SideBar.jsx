@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../button/Button'
+import Button from '../tools/Button';
 import { FaRegClock } from "react-icons/fa6";
 import { LuCalendarDays } from "react-icons/lu";
 
