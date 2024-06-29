@@ -1,8 +1,9 @@
 "use client";
-import React,{useState} from "react";
+import { UserContext } from "@/app/context/ContextProvider";
+import React,{useContext} from "react";
 
-const ConversionTemp = ({setFahrenheit,Fahrenheit}) => {
-
+const ConversionTemp = () => {
+  const { Fahrenheit,setFahrenheit } = useContext(UserContext);
     const conversionTemp = () => {
         setFahrenheit(!Fahrenheit)
     }

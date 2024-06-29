@@ -4,7 +4,7 @@ import SearchBar from "../tools/SearchBar";
 import ConversionTemp from "../tools/ConversionTemp";
 import RecentSearch from "../RecentSearch/RecentSearch";
 
-const WeatherCardDetail = ({setFahrenheit,Fahrenheit,setSearchValue,onEnter,search}) => {
+const WeatherCardDetail = () => {
   return (
     <div className="flex  justify-center">
       <div className=" bg-opacity-60   border-2 rounded-lg backdrop-blur-sm max-w-[500px]  h-full w-[65%] mt-3  bg-[#fff7fc]  text-[#01204e] absolute  ">
@@ -13,8 +13,8 @@ const WeatherCardDetail = ({setFahrenheit,Fahrenheit,setSearchValue,onEnter,sear
             <IoIosCloudOutline className="w-36 h-36 text-[#429ed6] font-thin leading-3" />
             <p className="relative bottom-4 text-4xl  font-bold underline">fusion of weather </p>
           </div>
-            <SearchBar onEnter={onEnter} setSearchValue={setSearchValue} search={search}  />
-            <ConversionTemp  setFahrenheit={setFahrenheit} Fahrenheit={Fahrenheit}  />
+            <SearchBar  />
+            <ConversionTemp   />
             <RecentSearch />
         </div>
       </div>
