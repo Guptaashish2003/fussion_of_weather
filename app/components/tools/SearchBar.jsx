@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useRef } from 'react'
 
 const SearchBar = ({setSearchValue,onEnter,search}) => {
