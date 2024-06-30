@@ -6,6 +6,7 @@ import SideBar from "@/app/components/sidebar/SideBar";
 import { UserContext } from "@/app/context/ContextProvider";
 import { useRouter, useParams } from "next/navigation";
 import axios from "axios";
+import Loading from "@/app/loading";
 
 const page = () => {
   const { temperature, setTemperature, Fahrenheit } = useContext(UserContext);
@@ -13,12 +14,11 @@ const page = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  console.log(searchValue);
   useEffect(() => {
     const fetchWeather = async () => {
+      if(temperature.temp==="temperature"){
       try {
         setLoading(true);
-        console.log(".........")
         const data = await axios.get(`/api/get-city-location/${searchValue}`);
         console.log(data.data, "data");
         const kalvin = data.data.message.main.temp;
@@ -34,14 +34,14 @@ const page = () => {
         // return router.push("/not-found");
         console.log(error);
       }
+      }
     };
     fetchWeather();
   }, [temperature]);
-  if(!loading){
-    return <div>loading...</div>
+  
+  if(temperature.temp ==="temperature"){
+    return <Loading/>
   }
-
-  console.log(temperature);
   return (
     <div>
       <div className="w-screen h-screen fixed top-0 left-0 -z-50">
@@ -56,13 +56,17 @@ const page = () => {
       {/* <WeatherCardLocation location={"delhi"} temperature={"36 °C"} /> */}
       <ResutSection
         location={temperature?.name}
+        isFahrenheit={Fahrenheit}
         fahrenheit={temperature?.fahrenheit}
         humidity={temperature?.main.humidity}
         celsius={temperature?.celsius}
         windSpeed={temperature?.wind.speed}
+        feelsLike={temperature?.main.feels_like}
         weather={temperature?.weather[0].description}
         mainWeather={temperature?.weather[0].main}
-
+        clouds={temperature.clouds.all}
+        sunRise={temperature.sys.sunrise}
+        visibility={temperature.visibility}
 
 
       />
