@@ -7,6 +7,7 @@ import { UserContext } from "@/app/context/ContextProvider";
 import { useRouter, useParams } from "next/navigation";
 import axios from "axios";
 import Loading from "@/app/loading";
+import WeatherCardLocation from "@/app/components/weatherCardLoaction/WeatherCardLocation";
 
 const page = () => {
   const { temperature, setTemperature, Fahrenheit } = useContext(UserContext);
@@ -53,7 +54,11 @@ const page = () => {
           alt="cloudsbackground"
         />
       </div>
-      {/* <WeatherCardLocation location={"delhi"} temperature={"36 °C"} /> */}
+      <div className="max-md:hidden">
+      <WeatherCardLocation />
+      <SideBar />
+
+      </div>
       <ResutSection
         location={temperature?.name}
         isFahrenheit={Fahrenheit}
@@ -70,7 +75,6 @@ const page = () => {
 
 
       />
-      <SideBar />
       {/* <WeaterCard/> */}
     </div>
   );

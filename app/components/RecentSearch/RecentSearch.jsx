@@ -11,7 +11,7 @@ const RecentSearch = () => {
     setRecentSearch(newRecentSearch);
   };
   return (
-    <div className="flex flex-col min-w-[420px] min-h-[320px] bg-[#fff7fc] rounded-3xl     justify-start ">
+    <div className="flex flex-col min-w-[420px] min-h-[320px] bg-[#fff7fc] rounded-3xl justify-start ">
       <div className="flex text-start gap-3 flex-col  min-h-[310px] p-4 hover:bg-[#f5f5f5] rounded-3xl m-2 min-w-[410px] ">
         <p className="text-3xl mt-8 font-bold">Recent Searches</p>
         <div className="flex flex-col gap-x-5">

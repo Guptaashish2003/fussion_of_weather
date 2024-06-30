@@ -18,9 +18,12 @@ const Page = () => {
           alt="cloudsbackground"
         />
       </div>
+      <div className="max-md:hidden">
       <WeatherCardLocation />
-      <WeatherCardDetail />
       <SideBar />
+
+      </div>
+      <WeatherCardDetail />
       {/* <WeaterCard/> */}
     </div>
   );

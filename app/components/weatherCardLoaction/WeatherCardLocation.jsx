@@ -49,7 +49,7 @@ const WeatherCardLocation = () => {
       getLocation()
   } , [Fahrenheit])
   return (
-    <div className='fixed top-0 left-0 bottom-0 hc my-auto bg-[#FFF7FC] bg-opacity-60 backdrop-blur-sm text-[#01204E]  px-4 py-2 flex flex-col gap-y-8 justify-center items-center text-xl font-bold max-w-56 text-center' >
+    <div className='fixed top-0 left-0 bottom-0 hc my-auto bg-[#FFF7FC] bg-opacity-60 backdrop-blur-sm text-[#01204E]  px-4 py-2 flex flex-col gap-y-8 justify-center items-center text-xl font-bold max-w-56 text-center ' >
         <h2 className='mx-2 text-2xl uppercase'>weather in your location</h2>
         {locationPermission?<div>
         <p className='my-2'>{location}</p>
