@@ -5,7 +5,6 @@ import React, { useContext, useState } from "react";
 
 const SearchBar = () => {
   const { searchValue, setSearchValue,setTemperature } = useContext(UserContext);
-  
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const onEnter = (e) => {
@@ -27,6 +26,7 @@ const SearchBar = () => {
         ...data.data.message,
       });
       setLoading(false);
+      return router.push(`/Result/${data.data.message.name}`);
     } catch (error) {
       setLoading(false);
       return router.push("/not-found");
