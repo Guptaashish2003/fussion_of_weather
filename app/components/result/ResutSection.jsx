@@ -1,9 +1,8 @@
 import React from "react";
 import { IoIosCloudOutline } from "react-icons/io";
-import Image from "next/image";
 import { WiHumidity } from "react-icons/wi";
 import { FaWind,FaCloudSunRain  } from "react-icons/fa";
-import { FaCloudShowersHeavy } from "react-icons/fa";
+import { FcLike } from "react-icons/fc";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { GiInvisible } from "react-icons/gi";
 import { WiSunrise } from "react-icons/wi";
@@ -11,6 +10,14 @@ import { WiSunrise } from "react-icons/wi";
 
 
 const ResutSection = ({ location,visibility,humidity,isFahrenheit,fahrenheit,celsius,windSpeed,feelsLike,weather,mainWeather,clouds,sunRise }) => {
+  const convertTimestampToTime = (timestamp) => {
+    const date = new Date(timestamp * 1000); // Convert seconds to milliseconds
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
   return (
     <div className="flex  justify-center">
       <div className=" bg-opacity-60   border-2 rounded-lg backdrop-blur-sm max-w-[500px]  h-full w-[65%] mt-3  bg-[#fff7fc]  text-[#01204e] absolute max-md:w-[90%] ">
@@ -27,7 +34,7 @@ const ResutSection = ({ location,visibility,humidity,isFahrenheit,fahrenheit,cel
 
           <div className="flex flex-col w-[400px] justify-center text-center">
             <p className="relative bottom-4 mt-8 text-5xl  font-bold max-sm:text-3xl capitalize  cursor-pointer ">
-              {isFahrenheit?`${fahrenheit} °F`:`${celsius} °C` || "23"}
+              {isFahrenheit?`${fahrenheit}`:`${celsius}` || "23"}
             </p>
             <p className="relative bottom-4 mt-8 text-3xl  max-sm:text-xl capitalize  cursor-pointer ">
               {mainWeather || "clear"}
@@ -36,7 +43,7 @@ const ResutSection = ({ location,visibility,humidity,isFahrenheit,fahrenheit,cel
                 <div className="flex flex-col items-center p-1 text-xl">
                     {/* <Image src ></Image> */}
                     <WiHumidity className="w-7 h-7"/>
-                    <p> {humidity || "23"}</p>
+                    <p> {`${humidity}%` || "23"}</p>
                 </div>
                 <div className="flex flex-col items-center p-1 text-xl">
                     {/* <Image src ></Image> */}
@@ -51,17 +58,18 @@ const ResutSection = ({ location,visibility,humidity,isFahrenheit,fahrenheit,cel
                 <div className="flex flex-col items-center p-1 text-xl">
                     {/* <Image src ></Image> */}
                     <GiInvisible className="w-7 h-7"/>
-                    <p> {visibility || "23"}</p>
+                    <p> {`vis: ${visibility}M` || "23"}</p>
                 </div>
-                <div className="flex flex-col items-center p-1 text-xl">
+                <div className="flex flex-col items-center p-1 text-xl relative">
                     {/* <Image src ></Image> */}
                     <FaUsersViewfinder className="w-7 h-7"/>
+                    <FcLike className="absolute top-0 right-12 text-sm" />
                     <p> {feelsLike || "23"}</p>
                 </div>
                 <div className="flex flex-col items-center p-1 text-xl">
                     {/* <Image src ></Image> */}
                     <WiSunrise className="w-7 h-7"/>
-                    <p> {`${sunRise}` || "23"}</p>
+                    <p> {`${convertTimestampToTime(sunRise)}` || "23"}</p>
                 </div>
             </div>
                        
