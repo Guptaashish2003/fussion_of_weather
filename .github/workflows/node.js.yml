@@ -27,4 +27,4 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Build Project
-      run: yarn build --if-present
+      run: yarn build
